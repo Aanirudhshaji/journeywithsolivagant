@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Popular from './components/Popular';
-import WhyChoose from './components/whychoose';
+import WhyChoose from './components/whychoose.jsx';
 
 function App() {
   return (
