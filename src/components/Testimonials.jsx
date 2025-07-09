@@ -1,136 +1,123 @@
-import React, { useRef, useEffect, useState } from 'react';
-
-const testimonials = [
-  {
-    name: 'Petter Joe',
-    country: 'United States',
-    text: `Our adventure with Dolanadoh was extraordinary. Every detail was flawlessly planned.`,
-    image: 'https://randomuser.me/api/portraits/men/32.jpg',
-  },
-  {
-    name: 'Sarah Hanz',
-    country: 'Tanzania',
-    text: `Booking with them was the best decision! Everything was filled with adventure and peace.`,
-    image: 'https://randomuser.me/api/portraits/women/44.jpg',
-  },
-  {
-    name: 'Liam Wong',
-    country: 'Singapore',
-    text: `Incredible service and curated local experiences! I made lifelong friends on our group travel.`,
-    image: 'https://randomuser.me/api/portraits/men/41.jpg',
-  },
-  {
-    name: 'Aanya Verma',
-    country: 'India',
-    text: `As a solo female traveler, I felt safe and empowered. Everything was thoughtfully arranged.`,
-    image: 'https://randomuser.me/api/portraits/women/68.jpg',
-  },
-  {
-    name: 'Carlos Mendoza',
-    country: 'Mexico',
-    text: `Beautiful moments and great organization. I’ll definitely book again.`,
-    image: 'https://randomuser.me/api/portraits/men/76.jpg',
-  },
-  {
-    name: 'Naomi Zhang',
-    country: 'China',
-    text: `Such a seamless experience. Loved the cultural touches!`,
-    image: 'https://randomuser.me/api/portraits/women/12.jpg',
-  },
-];
+import React, { useEffect, useRef } from 'react';
 
 const Testimonials = () => {
   const scrollRef = useRef(null);
-  const [activeIndex, setActiveIndex] = useState(0);
 
-  const handleScroll = () => {
-    if (!scrollRef.current) return;
-    const scrollLeft = scrollRef.current.scrollLeft;
-    const cardWidth = scrollRef.current.firstChild.offsetWidth + 24;
-    const index = Math.round(scrollLeft / cardWidth);
-    setActiveIndex(index);
-  };
+  const testimonials = [
+    {
+      id: 1,
+      text: "Our adventure with Dolanadoh was nothing short of extraordinary. From the moment we contacted them to the end of our trip, every detail was meticulously planned and executed flawlessly...",
+      name: "Petter Joe",
+      location: "United States",
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=64&h=64&fit=crop&crop=face&auto=format"
+    },
+    {
+      id: 2,
+      text: "Booking our vacation through Dolanadoh was the best decision that we made. They listened to our preferences and crafted a perfect itinerary...",
+      name: "Sarah Hanz",
+      location: "Tanzania",
+      avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=64&h=64&fit=crop&crop=face&auto=format"
+    },
+    {
+      id: 3,
+      text: "The level of service and attention to detail provided by Dolanadoh exceeded all our expectations...",
+      name: "Michael Chen",
+      location: "Singapore",
+      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=64&h=64&fit=crop&crop=face&auto=format"
+    }
+  ];
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      if (!scrollRef.current) return;
-      const container = scrollRef.current;
-      const cardWidth = container.firstChild.offsetWidth + 24;
-      const nextIndex = (activeIndex + 1) % testimonials.length;
+    const container = scrollRef.current;
+    if (!container) return;
 
-      container.scrollTo({
-        left: nextIndex * cardWidth,
-        behavior: 'smooth',
-      });
+    let scrollAmount = 0;
+    const speed = 0.1; // Adjust speed here
+    const scroll = () => {
+      if (container.scrollWidth - container.clientWidth === 0) return;
+      scrollAmount += speed;
+      if (scrollAmount >= container.scrollWidth) {
+        scrollAmount = 0;
+      }
+      container.scrollLeft = scrollAmount;
+      requestAnimationFrame(scroll);
+    };
 
-      setActiveIndex(nextIndex);
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, [activeIndex]);
+    const animation = requestAnimationFrame(scroll);
+    return () => cancelAnimationFrame(animation);
+  }, []);
 
   return (
-    <section className="relative py-20 px-6 md:px-20 bg-white overflow-hidden">
-      <div className="flex flex-col md:flex-row items-start gap-10">
-        {/* Left Side Heading */}
-        <div className="md:w-1/3 w-full text-center md:text-left">
-          <p className="uppercase text-sm tracking-wide text-gray-400 mb-2">Testimonials</p>
-          <h2 className="text-3xl md:text-5xl font-Travel font-bold text-[#178FBC] leading-tight mb-6">
-            What Our Travelers Say
-          </h2>
-          <p className="text-gray-600 text-base md:text-lg font-poppins mb-6">
-            Discover what our clients say about their travel experiences with us.
-          </p>
-        </div>
-
-        {/* Right Side Scroll Section */}
-        <div className="relative md:w-2/3 mt-2 md:mt-4">
-          {/* Gradient edges */}
-          <div className="pointer-events-none absolute top-0 left-0 w-10 h-full bg-gradient-to-r from-white to-transparent z-10" />
-          <div className="pointer-events-none absolute top-0 right-0 w-10 h-full bg-gradient-to-l from-white to-transparent z-10" />
-
-          {/* Cards */}
-          <div
-            ref={scrollRef}
-            onScroll={handleScroll}
-            className="flex gap-6 snap-x snap-mandatory scroll-smooth pb-2 overflow-x-hidden"
-            style={{ touchAction: 'none' }}
-          >
-            {testimonials.map((item, index) => (
-              <div
-                key={index}
-                className="min-w-[85%] md:min-w-[48%] bg-gray-100 p-6 rounded-2xl text-gray-800 shadow-sm snap-center"
-              >
-                <p className="text-2xl mb-4">“</p>
-                <p className="mb-6 text-base leading-relaxed">{item.text}</p>
-                <div className="flex items-center gap-3">
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    className="w-10 h-10 rounded-full object-cover"
-                  />
-                  <div>
-                    <p className="text-sm font-medium">{item.name}</p>
-                    <p className="text-xs text-gray-500">{item.country}</p>
-                  </div>
-                </div>
+    <section className="py-16 px-4 bg-white">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex flex-col lg:flex-row lg:items-start lg:gap-16">
+          {/* Left Content */}
+          <div className="lg:w-1/3 mb-4 lg:mb-0 lg:flex-shrink-0">
+            <div className="mb-6">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-16 h-px bg-gray-400"></div>
+                <span className="text-gray-500 uppercase tracking-wider text-sm font-medium">
+                  TESTIMONIALS
+                </span>
               </div>
-            ))}
+              <h2 className="text-4xl lg:text-5xl font-Travel font-bold text-[#178FBC] leading-tight">
+                Don't Just Take Our Word for It,{' '}
+                <span className="font-bold">See What Our Travelers Say</span>
+              </h2>
+            </div>
+            <p className="text-gray-600 text-lg leading-relaxed mb-8">
+              Discover what our clients have to say about their incredible travel experiences with us.
+            </p>
           </div>
 
-          {/* Pagination Dots */}
-          <div className="flex justify-center gap-2 mt-6">
-            {testimonials.map((_, i) => (
-              <div
-                key={i}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  i === activeIndex ? 'bg-[#178FBC]' : 'bg-gray-300'
-                }`}
-              ></div>
-            ))}
+          {/* Right Content - Horizontal Auto-Scrolling Cards */}
+          <div className="lg:w-2/3 lg:flex-1">
+            <div
+              ref={scrollRef}
+              className="flex gap-6 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory"
+            >
+              {testimonials.concat(testimonials).map((testimonial, index) => (
+                <div
+                  key={`${testimonial.id}-${index}`}
+                  className="bg-gray-50 p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 min-w-[350px] lg:min-w-[400px] max-w-[400px] snap-start flex-shrink-0"
+                >
+                  <div className="mb-6">
+                    <span className="text-6xl text-gray-300 font-serif leading-none">"</span>
+                  </div>
+                  <p className="text-gray-700 text-base leading-relaxed mb-8">
+                    {testimonial.text}
+                  </p>
+                  <div className="flex items-center gap-4">
+                    <img
+                      src={testimonial.avatar}
+                      alt={testimonial.name}
+                      className="w-12 h-12 rounded-full object-cover"
+                    />
+                    <div>
+                      <h4 className="font-semibold text-gray-800 text-lg">
+                        {testimonial.name}
+                      </h4>
+                      <p className="text-gray-500 text-sm">
+                        {testimonial.location}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
     </section>
   );
 };
