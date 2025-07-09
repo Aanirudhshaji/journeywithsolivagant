@@ -3,6 +3,8 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Popular from './components/Popular';
 import WhyChoose from './components/WhyChoose';
+import About from './components/About';
+import Testimonials from './components/Testimonials';
 
 function App() {
   return (
@@ -11,6 +13,8 @@ function App() {
       <Hero />
       <WhyChoose />
       <Popular />
+      <About />
+      <Testimonials />
     </div>
   );
 }
