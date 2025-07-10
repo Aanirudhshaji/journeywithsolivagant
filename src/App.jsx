@@ -11,8 +11,8 @@ function App() {
     <div className="font-sans">
       <Navbar />
       <Hero />
-      <WhyChoose />
       <Popular />
+      <WhyChoose />
       <About />
       <Testimonials />
     </div>
