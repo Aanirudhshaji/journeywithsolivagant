@@ -78,7 +78,7 @@ const Testimonials = () => {
               {testimonials.map((testimonial) => (
                 <div
                   key={testimonial.id}
-                  className="bg-gray-50 p-6 sm:p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 w-full min-w-full sm:min-w-[70%] md:min-w-[400px] max-w-[400px] snap-start flex-shrink-0"
+                  className="bg-[#f1fbff] p-6 sm:p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 w-full min-w-full sm:min-w-[70%] md:min-w-[400px] max-w-[400px] snap-start flex-shrink-0"
                 >
                   <div className="mb-6">
                     <span className="text-6xl text-gray-300 font-serif leading-none">"</span>
