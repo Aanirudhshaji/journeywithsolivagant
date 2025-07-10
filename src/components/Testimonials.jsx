@@ -29,22 +29,22 @@ const Testimonials = () => {
 
   useEffect(() => {
     const container = scrollRef.current;
-    if (!container) return;
+    if (!container || window.innerWidth < 768) return;
 
-    let scrollAmount = 0;
-    const speed = 0.1; // Adjust speed here
+    let index = 0;
+    const cardWidth = container.firstChild?.offsetWidth || 400;
+
     const scroll = () => {
-      if (container.scrollWidth - container.clientWidth === 0) return;
-      scrollAmount += speed;
-      if (scrollAmount >= container.scrollWidth) {
-        scrollAmount = 0;
-      }
-      container.scrollLeft = scrollAmount;
-      requestAnimationFrame(scroll);
+      if (!container) return;
+      index = (index + 1) % testimonials.length;
+      container.scrollTo({
+        left: cardWidth * index,
+        behavior: 'smooth',
+      });
     };
 
-    const animation = requestAnimationFrame(scroll);
-    return () => cancelAnimationFrame(animation);
+    const interval = setInterval(scroll, 3000); // 3s interval
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -52,7 +52,7 @@ const Testimonials = () => {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row lg:items-start lg:gap-16">
           {/* Left Content */}
-          <div className="lg:w-1/3 mb-4 lg:mb-0 lg:flex-shrink-0">
+          <div className="lg:w-1/3 mb-8 lg:mb-0">
             <div className="mb-6">
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-16 h-px bg-gray-400"></div>
@@ -65,21 +65,21 @@ const Testimonials = () => {
                 <span className="font-bold">See What Our Travelers Say</span>
               </h2>
             </div>
-            <p className="text-gray-600 text-lg leading-relaxed mb-8">
+            <p className="text-gray-600 text-lg leading-relaxed">
               Discover what our clients have to say about their incredible travel experiences with us.
             </p>
           </div>
 
-          {/* Right Content - Horizontal Auto-Scrolling Cards */}
+          {/* Right Content */}
           <div className="lg:w-2/3 lg:flex-1">
             <div
               ref={scrollRef}
-              className="flex gap-6 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory"
+              className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4 scrollbar-hide scroll-smooth"
             >
-              {testimonials.concat(testimonials).map((testimonial, index) => (
+              {testimonials.map((testimonial) => (
                 <div
-                  key={`${testimonial.id}-${index}`}
-                  className="bg-gray-50 p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 min-w-[350px] lg:min-w-[400px] max-w-[400px] snap-start flex-shrink-0"
+                  key={testimonial.id}
+                  className="bg-gray-50 p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 min-w-[90%] sm:min-w-[70%] md:min-w-[400px] max-w-[400px] snap-start flex-shrink-0"
                 >
                   <div className="mb-6">
                     <span className="text-6xl text-gray-300 font-serif leading-none">"</span>
@@ -97,9 +97,7 @@ const Testimonials = () => {
                       <h4 className="font-semibold text-gray-800 text-lg">
                         {testimonial.name}
                       </h4>
-                      <p className="text-gray-500 text-sm">
-                        {testimonial.location}
-                      </p>
+                      <p className="text-gray-500 text-sm">{testimonial.location}</p>
                     </div>
                   </div>
                 </div>
