@@ -16,7 +16,7 @@ const Testimonials = () => {
       text: "Booking our vacation through Dolanadoh was the best decision that we made. They listened to our preferences and crafted a perfect itinerary...",
       name: "Sarah Hanz",
       location: "Tanzania",
-      avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=64&h=64&fit=crop&crop=face&auto=format"
+      avatar: "https://unsplash.com/photos/selective-focus-photography-of-woman-with-brown-wooden-wall-background-K_b41GaWC5Y"
     },
     {
       id: 3,
