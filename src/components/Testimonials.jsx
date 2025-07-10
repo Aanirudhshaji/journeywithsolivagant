@@ -43,13 +43,13 @@ const Testimonials = () => {
       });
     };
 
-    const interval = setInterval(scroll, 3000); // 3s interval
+    const interval = setInterval(scroll, 3000); // 3 seconds interval
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <section className="py-16 px-4 bg-white">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-16 bg-white">
+      <div className="max-w-7xl mx-auto px-4">
         <div className="flex flex-col lg:flex-row lg:items-start lg:gap-16">
           {/* Left Content */}
           <div className="lg:w-1/3 mb-8 lg:mb-0">
@@ -61,8 +61,7 @@ const Testimonials = () => {
                 </span>
               </div>
               <h2 className="text-4xl lg:text-5xl font-Travel font-bold text-[#178FBC] leading-tight">
-                Don't Just Take Our Word for It,{' '}
-                <span className="font-bold">See What Our Travelers Say</span>
+                See What Our Travelers Say{' '}
               </h2>
             </div>
             <p className="text-gray-600 text-lg leading-relaxed">
@@ -74,12 +73,12 @@ const Testimonials = () => {
           <div className="lg:w-2/3 lg:flex-1">
             <div
               ref={scrollRef}
-              className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4 scrollbar-hide scroll-smooth"
+              className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4 scrollbar-hide scroll-smooth px-4 sm:px-0"
             >
               {testimonials.map((testimonial) => (
                 <div
                   key={testimonial.id}
-                  className="bg-gray-50 p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 min-w-[90%] sm:min-w-[70%] md:min-w-[400px] max-w-[400px] snap-start flex-shrink-0"
+                  className="bg-gray-50 p-6 sm:p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 w-full min-w-full sm:min-w-[70%] md:min-w-[400px] max-w-[400px] snap-start flex-shrink-0"
                 >
                   <div className="mb-6">
                     <span className="text-6xl text-gray-300 font-serif leading-none">"</span>
@@ -97,7 +96,9 @@ const Testimonials = () => {
                       <h4 className="font-semibold text-gray-800 text-lg">
                         {testimonial.name}
                       </h4>
-                      <p className="text-gray-500 text-sm">{testimonial.location}</p>
+                      <p className="text-gray-500 text-sm">
+                        {testimonial.location}
+                      </p>
                     </div>
                   </div>
                 </div>
