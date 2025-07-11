@@ -13,8 +13,8 @@ const Hero = () => {
 
   return (
     <section className="relative h-screen w-full overflow-hidden text-white flex items-center justify-center px-6 md:px-20">
-
-      {/* 🔁 Background Video (Replaced iframe with video tag) */}
+      
+      {/* 🔁 Background Video */}
       <video
         className="absolute inset-0 w-full h-full object-cover z-0"
         autoPlay
@@ -31,6 +31,15 @@ const Hero = () => {
 
       {/* 🔤 Foreground Content */}
       <div className="text-center max-w-3xl z-10">
+        
+        {/* ✨ Label above title */}
+        <div
+          data-aos="fade-up"
+          className="inline-block mx-auto mb-4 px-6 py-2 rounded-full bg-white/20 backdrop-blur-md text-white font-medium text-sm md:text-base"
+        >
+          The Best Place to Start Your Adventure
+        </div>
+
         <h1
           data-aos="fade-up"
           className="font-Travel text-3xl md:text-5xl font-bold mb-4 leading-snug drop-shadow-md"
