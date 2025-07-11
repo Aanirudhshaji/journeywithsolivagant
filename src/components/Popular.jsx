@@ -3,6 +3,9 @@ import { Star } from 'lucide-react';
 import delhiAgra from '../assets/1.jpg';
 import kulluManali from '../assets/2.jpg';
 import matheran from '../assets/3.jpg';
+import goa from '../assets/4.jpg';
+import jaipur from '../assets/5.jpg';
+import andaman from '../assets/6.jpg';
 
 const destinations = [
   {
@@ -28,6 +31,30 @@ const destinations = [
     price: '₹5,000',
     rating: 4.9,
     duration: '4 Days | Nature Points & Scenic Trails',
+  },
+  {
+    id: 4,
+    title: 'Goa Beach Bliss',
+    image: goa,
+    price: '₹6,999',
+    rating: 4.8,
+    duration: '4 Days | Beaches, Parties & Cruise',
+  },
+  {
+    id: 5,
+    title: 'Jaipur Heritage Tour',
+    image: jaipur,
+    price: '₹4,800',
+    rating: 4.7,
+    duration: '3 Days | Forts, Palaces & Local Bazaars',
+  },
+  {
+    id: 6,
+    title: 'Andaman Island Retreat',
+    image: andaman,
+    price: '₹15,999',
+    rating: 5.0,
+    duration: '6 Days | Beach Stay, Snorkeling & Cruise',
   },
 ];
 
@@ -57,7 +84,7 @@ const Popular = () => {
         {destinations.map((item) => (
           <div
             key={item.id}
-            className="rounded-3xl overflow-hidden relative group border border-gray-200"
+            className="rounded-3xl overflow-hidden relative group border border-gray-200 hover:scale-[1.02] hover:shadow-xl transition duration-300 ease-in-out cursor-pointer"
           >
             <img src={item.image} alt={item.title} className="w-full h-100 object-cover" />
 
@@ -72,7 +99,7 @@ const Popular = () => {
 
             <div className="absolute bottom-0 w-full bg-white/20 backdrop-blur-md px-4 py-4 text-white flex flex-col md:flex-row justify-between items-start md:items-center gap-2 rounded-t-2xl">
               <div>
-                <h3 className="text-lg font-poppins semibold">{item.title}</h3>
+                <h3 className="text-lg font-poppins font-semibold">{item.title}</h3>
                 <p className="text-sm">{item.duration}</p>
               </div>
               <button className="bg-[#00A9E0] text-white text-sm font-medium px-4 py-1.5 rounded-full hover:bg-[#0094c8] transition">
@@ -88,7 +115,7 @@ const Popular = () => {
         {destinations.map((item) => (
           <div
             key={item.id}
-            className="min-w-[90%] rounded-3xl overflow-hidden relative snap-center border border-gray-200"
+            className="min-w-[90%] rounded-3xl overflow-hidden relative snap-center border border-gray-200 hover:scale-[1.02] hover:shadow-xl transition duration-300 ease-in-out cursor-pointer"
           >
             <img src={item.image} alt={item.title} className="w-full h-72 object-cover" />
 
