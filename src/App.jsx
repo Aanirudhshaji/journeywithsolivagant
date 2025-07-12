@@ -6,12 +6,14 @@ import Popular from './components/Popular';
 import WhyChoose from './components/WhyChoose';
 import About from './components/About';
 import Testimonials from './components/Testimonials';
+import Footer from './components/Footer';
 
 function App() {
   return (
     <Router>
       <div className="font-sans">
         <Navbar />
+       
         <Routes>
           {/* Home Page */}
           <Route
@@ -31,6 +33,7 @@ function App() {
           <Route path="./Pages/About.jsx" element={<About />} />
         </Routes>
       </div>
+       <Footer />
     </Router>
   );
 }
