@@ -7,22 +7,22 @@ const Footer = () => {
       <div
         className="relative bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url('./src/assets/9.jpg')`,
+          backgroundImage: `url('https://res.cloudinary.com/dhbvmc6xe/image/upload/v1752384147/compressed_9_xuu3ob.jpg')`,
         }}
       >
         {/* Gradient overlay (top to bottom) */}
         <div className="absolute inset-0 z-0" style={{
-          background: 'linear-gradient(180deg, #FFF 0%, rgba(255, 255, 255, 0) 100%)',
+          background: 'linear-gradient(180deg, #FFF 0%, rgba(255, 255, 255, 0) 50%)',
         }} />
 
         {/* All content above gradient */}
         <div className="relative z-10 w-full h-full">
           {/* CTA Top */}
           <div className="text-center px-6 md:px-20 pt-24 pb-16">
-            <h2 className="text-4xl sm:text-5xl font-bold text-black font-poppins leading-snug">
+            <h2 className="text-4xl sm:text-5xl font-bold text-[#178FBC] font-Travel leading-snug">
               Let’s Just Get Travel <br />
               <span className="inline-flex items-center justify-center gap-2 mt-2">
-                <span className="text-black">Ar</span>
+                <span className="text-[#178FBC] font-Travel">Ar</span>
                 <span className="relative w-[160px] h-[48px] rounded-full overflow-hidden">
                   <img
                     src="./src/assets/10.jpg"
@@ -30,7 +30,7 @@ const Footer = () => {
                     className="w-full h-full object-cover"
                   />
                 </span>
-                <span className="text-black">ound The World</span>
+                <span className="text-[#178FBC] font-Travel">ound The World</span>
               </span>
             </h2>
 
@@ -39,7 +39,7 @@ const Footer = () => {
               start planning your next adventure.
             </p>
 
-            <button className="bg-black text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-gray-800 transition">
+            <button className="bg-[#178FBC] text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-blue-600 transition">
               Join the Trip
             </button>
           </div>
@@ -67,13 +67,13 @@ const Footer = () => {
                   Home
                 </a>
                 <a href="#" className="hover:text-[#D6F2FF] transition">
-                  Destinations
+                  About
                 </a>
                 <a href="#" className="hover:text-[#D6F2FF] transition">
-                  Trip
+                  Our Services
                 </a>
                 <a href="#" className="hover:text-[#D6F2FF] transition">
-                  About Us
+                  Travel Packages
                 </a>
                 <a href="#" className="hover:text-[#D6F2FF] transition">
                   Contact
@@ -90,7 +90,7 @@ const Footer = () => {
 
           {/* Bottom bar */}
           <div className="border-t border-white/40 pt-6 px-6 md:px-20 pb-8 flex flex-col md:flex-row items-center justify-between text-sm text-gray-100">
-            <p>Copyright ©2024 Dolanadoh. All rights reserved.</p>
+            <p>Copyright ©2025 Journey with Solivagant. All rights reserved.</p>
             <div className="flex gap-6 mt-3 md:mt-0">
               <a href="#" className="hover:text-white transition">
                 Terms of Service

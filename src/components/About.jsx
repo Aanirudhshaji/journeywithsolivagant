@@ -26,7 +26,7 @@ const About = () => {
           </p>
 
           {/* Stats Row */}
-          <div className="flex gap-30 mb-10">
+          <div className="flex gap-10 mb-10">
             <div>
               <h3 className="text-4xl font-extrabold text-black text-center">7K+</h3>
               <p className="text-sm text-gray-600 mt-1">Happy customers</p>
@@ -43,7 +43,7 @@ const About = () => {
 
           {/* Bottom Info Cards */}
           <div className="flex gap-4 flex-col sm:flex-row mt-6">
-            {/* Card 1 — No Navigation */}
+            {/* Card 1 */}
             <div
               className="relative w-full sm:w-1/2 h-64 rounded-2xl overflow-hidden bg-cover bg-center hover:shadow-lg transition"
               style={{ backgroundImage: `url(${reviewBg})` }}
@@ -57,7 +57,7 @@ const About = () => {
               </div>
             </div>
 
-            {/* Card 2 — Still Navigates to /about */}
+            {/* Card 2 */}
             <Link to="/about" className="w-full sm:w-1/2">
               <div className="relative bg-[#D6F2FF] rounded-2xl p-4 flex flex-col justify-between h-64 hover:shadow-lg transition cursor-pointer">
                 <div className="flex items-center -space-x-4 mb-4">
@@ -88,17 +88,14 @@ const About = () => {
           </div>
         </div>
 
-        {/* Right Video Section */}
+        {/* Right Image Section with Responsive Height */}
         <div className="lg:w-1/2 w-full">
-          <div className="relative rounded-[30px] overflow-hidden w-full pt-[56.25%]">
-            <iframe
-              className="absolute top-0 left-0 w-full h-full"
-              src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-              title="YouTube Video"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
+          <div className="relative rounded-[30px] overflow-hidden w-full h-[250px] sm:h-[350px] md:h-[500px] lg:h-[720px] shadow-lg">
+            <img
+              src={waterfall}
+              alt="Scenic Destination"
+              className="w-full h-full object-cover rounded-[30px]"
+            />
           </div>
         </div>
       </div>
