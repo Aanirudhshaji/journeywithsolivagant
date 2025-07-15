@@ -31,10 +31,10 @@ const Footer = () => {
             transition={{ duration: 0.8, ease: 'easeOut' }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl sm:text-5xl font-bold text-[#178FBC] font-Travel leading-snug text-center">
+            <h2 className="text-3xl sm:text-5xl font-bold text-[#178FBC] font-Travel leading-snug text-center">
               Let’s Just Get Travel <br />
 
-              <span className="mt-2 inline-flex items-center justify-center gap-2 whitespace-nowrap">
+              <span className="mt-2 inline-flex items-center justify-center sm:gap-2 whitespace-nowrap">
                 <span className="text-[#178FBC] font-Travel text-3xl sm:text-5xl">Ar</span>
 
                 {/* Image hidden on mobile */}
