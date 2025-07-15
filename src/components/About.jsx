@@ -1,19 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import waterfall from '../assets/8.jpg';
 import reviewBg from '../assets/7.jpg';
 
 const About = () => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
   return (
     <section className="py-20 px-6 md:px-20 bg-white">
       <div className="flex flex-col lg:flex-row items-center gap-12">
         {/* Left Content */}
         <div className="lg:w-1/2 w-full">
-          <p className="text-sm font-medium text-gray-500 mb-3 font-poppins">
+          <p className="text-sm font-medium text-gray-500 mb-3 font-poppins text-center md:text-left">
             Welcome to Journey with Solivagant
           </p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-Travel text-[#178FBC] leading-tight mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-Travel text-[#178FBC] leading-tight mb-4 text-center md:text-left">
             Explore top destinations <br />
             and create <span className='text-gray-500'>unforgettable </span> <br />
             <span className="text-gray-500">journeys</span>
@@ -26,20 +28,32 @@ const About = () => {
           </p>
 
           {/* Stats Row */}
-          <div className="flex gap-10 mb-10">
-            <div>
-              <h3 className="text-4xl font-extrabold text-black text-center">7K+</h3>
-              <p className="text-sm text-gray-600 mt-1">Happy customers</p>
+          <div className="flex justify-center items-center text-center gap-6 sm:gap-10 mb-12 flex-wrap">
+              {/* Item 1 */}
+              <div className="flex flex-col items-center px-4">
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-black">200+</h3>
+                <p className="text-sm text-gray-600 mt-1">Happy Customers</p>
+              </div>
+
+              {/* Divider */}
+              <div className="w-px h-10 bg-gray-300" />
+
+              {/* Item 2 */}
+              <div className="flex flex-col items-center px-4">
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-black">65+</h3>
+                <p className="text-sm text-gray-600 mt-1">Top Hotels</p>
+              </div>
+
+              {/* Divider */}
+              <div className="w-px h-10 bg-gray-300" />
+
+              {/* Item 3 */}
+              <div className="flex flex-col items-center px-4">
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-black">250+</h3>
+                <p className="text-sm text-gray-600 mt-1">Experienced Guides</p>
+              </div>
             </div>
-            <div>
-              <h3 className="text-4xl font-extrabold text-black text-center">27K+</h3>
-              <p className="text-sm text-gray-600 mt-1">Miles together</p>
-            </div>
-            <div>
-              <h3 className="text-4xl font-extrabold text-black text-center">105+</h3>
-              <p className="text-sm text-gray-600 mt-1">Countries passed</p>
-            </div>
-          </div>
+
 
           {/* Bottom Info Cards */}
           <div className="flex gap-4 flex-col sm:flex-row mt-6">
@@ -88,13 +102,16 @@ const About = () => {
           </div>
         </div>
 
-        {/* Right Image Section with Responsive Height */}
+        {/* Right Image Section with Responsive Height and Fade-in Animation */}
         <div className="lg:w-1/2 w-full">
           <div className="relative rounded-[30px] overflow-hidden w-full h-[250px] sm:h-[350px] md:h-[500px] lg:h-[720px] shadow-lg">
             <img
               src={waterfall}
               alt="Scenic Destination"
-              className="w-full h-full object-cover rounded-[30px]"
+              className={`w-full h-full object-cover rounded-[30px] transition-opacity duration-1000 ${
+                imageLoaded ? 'opacity-100' : 'opacity-0'
+              }`}
+              onLoad={() => setImageLoaded(true)}
             />
           </div>
         </div>

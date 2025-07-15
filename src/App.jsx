@@ -6,6 +6,7 @@ import Popular from './components/Popular';
 import WhyChoose from './components/WhyChoose';
 import About from './components/About';
 import Testimonials from './components/Testimonials';
+import Faq from './components/Faq';
 import Footer from './components/Footer';
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
                 <WhyChoose />
                 <About />
                 <Testimonials />
+                <Faq />
               </>
             }
           />
