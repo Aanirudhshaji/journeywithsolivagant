@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaFacebookF, FaInstagram, FaYoutube } from 'react-icons/fa';
+import curv from '../assets/10.jpg';
 
 const Footer = () => {
   return (
@@ -30,7 +31,7 @@ const Footer = () => {
                 <span className="text-[#178FBC] font-Travel text-3xl sm:text-5xl">Ar</span>
                 <span className="relative w-[80px] h-[40px] sm:w-[160px] sm:h-[48px] rounded-full overflow-hidden">
                   <img
-                    src="./src/assets/10.jpg"
+                    src={curv}
                     alt="Mountains"
                     className="w-full h-full object-cover"
                   />
