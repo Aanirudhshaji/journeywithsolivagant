@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaFacebookF, FaInstagram, FaYoutube } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 import curv from '../assets/10.jpg';
 
 const Footer = () => {
@@ -22,20 +23,29 @@ const Footer = () => {
 
         {/* All content above gradient */}
         <div className="relative z-10 w-full h-full">
-          {/* CTA Top */}
-          <div className="text-center px-6 md:px-20 pt-24 pb-42">
+          {/* CTA Top with animation */}
+          <motion.div
+            className="text-center px-6 md:px-20 pt-24 pb-42"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+            viewport={{ once: true }}
+          >
             <h2 className="text-4xl sm:text-5xl font-bold text-[#178FBC] font-Travel leading-snug text-center">
               Let’s Just Get Travel <br />
 
               <span className="mt-2 inline-flex items-center justify-center gap-2 whitespace-nowrap">
                 <span className="text-[#178FBC] font-Travel text-3xl sm:text-5xl">Ar</span>
-                <span className="relative w-[80px] h-[40px] sm:w-[160px] sm:h-[48px] rounded-full overflow-hidden">
+
+                {/* Image hidden on mobile */}
+                <span className="hidden sm:inline-block relative w-[80px] h-[40px] sm:w-[160px] sm:h-[48px] rounded-full overflow-hidden">
                   <img
                     src={curv}
                     alt="Mountains"
                     className="w-full h-full object-cover"
                   />
                 </span>
+
                 <span className="text-[#178FBC] font-Travel text-3xl sm:text-5xl">ound The World</span>
               </span>
             </h2>
@@ -45,10 +55,14 @@ const Footer = () => {
               start planning your next adventure.
             </p>
 
-            <button className="bg-[#178FBC] text-white px-6 py-3 rounded-full text-sm font-poppins font-semibold hover:bg-blue-600 transition">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-[#178FBC] text-white px-6 py-3 rounded-full text-sm font-poppins font-semibold hover:bg-blue-600 transition"
+            >
               Join the Trip
-            </button>
-          </div>
+            </motion.button>
+          </motion.div>
 
           {/* Footer Content */}
           <div className="px-6 md:px-20 pb-16 text-white text-sm flex flex-col md:grid md:grid-cols-4 gap-10">
