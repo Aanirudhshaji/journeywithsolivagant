@@ -2,6 +2,7 @@ import React from 'react';
 import { FaFacebookF, FaInstagram, FaYoutube } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import curv from '../assets/10.jpg';
+import { FaLinkedin } from 'react-icons/fa6';
 
 const Footer = () => {
   return (
@@ -72,17 +73,19 @@ const Footer = () => {
               <p className="text-gray-200 mb-4">
                 Experience personalized healthcare from the comfort of your home with our advanced telemedicine services.
               </p>
-              <div className="flex gap-4 text-xl mb-4">
-                <a href="#"><FaFacebookF /></a>
-                <a href="#"><FaInstagram /></a>
-                <a href="#"><FaYoutube /></a>
+              <div className="flex gap-4 text-xl mb-4 ">
+                <a href="#" className='p-2 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white hover:text-blue-300 transition'><FaFacebookF /></a>
+                <a href="#" className='p-2 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white hover:text-blue-300 transition'><FaInstagram /></a>
+                <a href="#" className='p-2 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white hover:text-blue-300 transition'><FaYoutube /></a>
+                <a href="#" className='p-2 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white hover:text-blue-300 transition'><FaLinkedin /></a>
               </div>
               <p className="text-gray-200 font-bold mb-1">Get in touch with us:</p>
               <a
                 href="mailto:connect@dolanadoh.travel"
-                className="text-white text-2xl font-poppins font-medium underline"
+                className="text-white text-2xl font-poppins font-medium"
               >
                 connect@dolanadoh.travel
+                (+91) 123-456-7890
               </a>
             </div>
 
@@ -91,18 +94,18 @@ const Footer = () => {
               {/* Company */}
               <div className="text-left">
                 <h3 className="text-white font-poppins font-semibold text-xl mb-3">Company</h3>
-                <ul className="space-y-2 text-gray-300">
-                  <li><a href="#" className="hover:text-white">About</a></li>
-                  <li><a href="#" className="hover:text-white">Travel Packages</a></li>
-                  <li><a href="#" className="hover:text-white">Contact</a></li>
-                  <li><a href="#" className="hover:text-white">FAQs</a></li>
+                <ul className="space-y-2 text-[#ffffff]">
+                  <li><a href="#" className="hover:text-gray-300">About</a></li>
+                  <li><a href="#" className="hover:text-gray-300">Travel Packages</a></li>
+                  <li><a href="#" className="hover:text-gray-300">Contact</a></li>
+                  <li><a href="#" className="hover:text-gray-300">FAQs</a></li>
                 </ul>
               </div>
 
               {/* Address */}
               <div className="text-left">
                 <h3 className="text-white font-poppins text-xl font-semibold mb-3">Contacts Us</h3>
-                <p className="text-gray-300">
+                <p className="text-[#ffffff] sm:text-xl">
                   8502 Preston Rd.<br />
                   Inglewood, Maine<br />
                   98830<br />
