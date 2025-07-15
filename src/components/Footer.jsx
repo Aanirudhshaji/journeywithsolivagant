@@ -27,7 +27,7 @@ const Footer = () => {
             <h2 className="text-4xl sm:text-5xl font-bold text-[#178FBC] font-Travel leading-snug text-center">
               Let’s Just Get Travel <br />
 
-              <span className="inline-flex items-center justify-center gap-2 mt-2 flex-wrap">
+              <span className="mt-2 inline-flex items-center justify-center gap-2 whitespace-nowrap">
                 <span className="text-[#178FBC] font-Travel text-3xl sm:text-5xl">Ar</span>
                 <span className="relative w-[80px] h-[40px] sm:w-[160px] sm:h-[48px] rounded-full overflow-hidden">
                   <img
