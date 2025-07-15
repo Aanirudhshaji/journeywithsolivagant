@@ -15,7 +15,7 @@ const About = () => {
           <p className="text-sm font-medium text-gray-500 mb-3 font-poppins text-center md:text-left">
             Welcome to Journey with Solivagant
           </p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-Travel text-[#178FBC] leading-tight mb-4 text-center md:text-left">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold font-Travel text-[#178FBC] leading-tight mb-4 text-center md:text-left">
             Explore top destinations <br />
             and create <span className='text-gray-500'>unforgettable </span> <br />
             <span className="text-gray-500">journeys</span>
